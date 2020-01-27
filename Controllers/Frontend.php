@@ -15,6 +15,19 @@ class Frontend {
 
         $page_accueil = new Page( $donnees_page_accueil);
         $this->view->setVar('page', $page_accueil);
+
+        $article_repository = new ArticleRepository();
+        $donnees_posts = $article_repository->all();
+
+        $posts_array = array();
+        foreach($donnees_posts as $donnees_post){
+            $posts_array[] = new Article($donnees_post);
+        }
+
+        $this ->view->setvar('articles', $posts_array);
+        $this->view->setVar('view', 'frontend/accueil');
+
+        echo $this ->view->render();
     }
 
     function page($name = "accueil")
