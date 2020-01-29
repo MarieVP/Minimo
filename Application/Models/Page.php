@@ -1,5 +1,7 @@
 <?php
 
+namespace minimo\Models;
+
 class Page extends Post
 {
     function __construct($values){
