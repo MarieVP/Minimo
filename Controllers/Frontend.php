@@ -1,11 +1,13 @@
 <?php
 
+namespace minimo\Controllers;
+
 class Frontend {
 
     public $view;
 
     function __construct(){
-        $this->view = new View();
+        $this->view = new minimo\Views\View();
     }
 
     function index()
