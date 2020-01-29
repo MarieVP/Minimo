@@ -12,7 +12,8 @@ class View
         return $str;
     }
 
-    function setVar($key, $val);
+    function setVar($key, $val){
         $this->data[$key] = $val;
+    }
 
 }
