@@ -1,21 +1,21 @@
 <?php
 
-namespace Application\Controllers;
+namespace minimo\Controllers;
 
 class Frontend {
 
     public $view;
 
     function __construct(){
-        $this->view = new Application\Views\View();
+        $this->view = new \minimo\Views\View();
 
         function index()
         {
             //Exemple de récupération d'une page en base de données
-            $page_repository = new \Application\Models\PageRepository(); //on instancie un repository
+            $page_repository = new \minimo\Models\PageRepository(); //on instancie un repository
             $donnees_page_accueil = $page_repository->read('accueil'); //on récupère les données depuis la base de données
     
-            $page_accueil = new \Application\Models\Page( $donnees_page_accueil ); //on instancie un objet page (Un modèle) avec les données récupérées par le repository
+            $page_accueil = new \minimo\Models\Page( $donnees_page_accueil ); //on instancie un objet page (Un modèle) avec les données récupérées par le repository
     
             //On passe notre objet à la vue. Dans la fichier de la vue, on pourra utiliser la variable $page
             $this->view->setVar('page', $page_accueil);
@@ -27,12 +27,12 @@ class Frontend {
             //On doit récupérer les articles depuis la base de données et les initialiser
             //puis les passer à la view
     
-            $article_repository = new \Application\Models\ArticleRepository(); //on instancie un repository
+            $article_repository = new \minimo\Models\ArticleRepository(); //on instancie un repository
             $donnees_posts = $article_repository->all(); //on récupère les données depuis la base de données
     
             $posts_array = array(); 
             foreach($donnees_posts as $donnees_post) {
-              $posts_array[] = new \Application\Models\Article($donnees_post);
+              $posts_array[] = new \minimo\Models\Article($donnees_post);
             } 
             // print_r($posts_array[0]->title());
             // die;
@@ -56,7 +56,7 @@ class Frontend {
         {
           if(isset($_GET['name']) and $_GET['name'] != "") $name = $_GET['name'];
     
-            $page = new \Application\Models\Page([]);
+            $page = new \minimo\Models\Page([]);
     
             $this->view->setVar('page', $page);
             $this->view->setVar('view', 'frontend/'.$name);
@@ -125,3 +125,5 @@ class Frontend {
             //on appelle la template, qui va utiliser la view que l'on a choisie
             echo $this->view->render();
         }
+    }
+}
