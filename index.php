@@ -1,6 +1,6 @@
 <?php
-require 'Bootstrap.php';
-require 'Controllers/Frontend.php';
+require 'Application/Bootstrap.php';
+
 
 session_start();
 if(!isset($_GET['action'])){
@@ -9,10 +9,10 @@ if(!isset($_GET['action'])){
     $action =$_GET['action'];
 }
 
-$controller = new \Controllers\Frontend();
+$controller = new minimo\Controllers\Frontend();
 
 if (is_callable(array($controller, $action))){
     $controller->$action();
 } else {
-    $controller-> index();
-}
+    $controller->index();
+} 
