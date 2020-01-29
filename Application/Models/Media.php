@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Models;
+namespace minimo\Models;
 
 class Media extends Post
 {
