@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Models;
+namespace minimo\Models;
 
 require_once("Repository.php");
 
