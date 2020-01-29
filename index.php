@@ -9,7 +9,7 @@ if(!isset($_GET['action'])){
     $action =$_GET['action'];
 }
 
-$controller = new Frontend();
+$controller = new \Controllers\Frontend();
 
 if (is_callable(array($controller, $action))){
     $controller->$action();
