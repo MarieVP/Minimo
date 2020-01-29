@@ -1,5 +1,7 @@
 <?php
 
+namespace minimo\Models;
+
 abstract class Post
 {
     protected $id;
