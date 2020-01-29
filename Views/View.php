@@ -13,6 +13,6 @@ class View
     }
 
     function setVar($key, $val);
-    $this->data[$key] = $val;
+        $this->data[$key] = $val;
 
 }
